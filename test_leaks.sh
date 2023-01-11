@@ -12,6 +12,17 @@ BOLDGREEN="\e[1;${GREEN}m"
 ITALICRED="\e[3;${GREY}"
 ENDCOLOR="\e[0m"
 
+file_name="push_swap"
+checker_name="checker"
+
+if [ ! -f "$file_name" ]; then
+  echo -e "\n${RED}Error: \nyou must have the $file_name file created for this to work\n"
+  exit 1
+else
+  echo -e "\n${GREEN}File $file_name found\n"
+  echo -e "${GREEN}STARTING\n"
+fi
+
 declare -a hundred_numbers
 for i in {1..100}; do
   new_number=$((RANDOM % 201 - 100))
@@ -195,6 +206,7 @@ leak_indicator
 echo -e "${GREY}./push_swap "'"30 -4 72 8"'" -1${NC}\n"
 
 
+
 echo -e "\e[1;30;4;42mERROR MANAGEMENT\e[0m"
 
 echo -e "\n${ITALICRED}Run with non numeric parameters${NC}"
@@ -222,7 +234,12 @@ echo -e "\n${ITALICRED}./push_swap 0 1 2 3 ${NC}"
 echo -e "\n${ITALICRED}./push_swap 0 1 2 3 4 5 6 7 8 9${NC}"
 ./push_swap 0 1 2 3 4 5 6 7 8 9
 
-
+if [ ! -f "$checker_name" ]; then
+  echo -e "\n${RED}${BOLD}Error:\n"
+  echo -e "${RED}${BOLD}For this part to work:\n"
+  echo -e "${RED}${BOLD}Download the checker first and/or change its name to just "'"checker"'"\n${NC}"
+  exit 1
+fi
 
 echo -e "\n\e[1;30;4;42mPush_swap - simple version\e[0m\n"
 
