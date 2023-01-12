@@ -1,5 +1,5 @@
 # push_swap_leak_tester
-a very basic push_swap tester. Mostly for checking leaks in all scenarios
+a very basic push_swap tester. Mostly for checking leaks in all common scenarios
 
 I made it for myself but got carried away and decided to create something more apealing.
 
