@@ -10,4 +10,4 @@ I made it for myself but got carried away and decided to create something more a
 
 If you encounter any errors please feel free to contact me, all feedback is apreciated!
 
-![](https://github.com/IDC87/push_swap_leak_tester/blob/main/push_swap_leaker_tester_demonstration.gif)
+![](https://github.com/IDC87/push_swap_leak_tester/blob/main/push_swap_leaker_tester_demonstration_updated.gif)
