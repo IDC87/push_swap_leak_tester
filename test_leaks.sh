@@ -34,6 +34,7 @@ else
   echo -e "\n${GREEN}File $file_name found\n"
   echo -e "${GREEN}${BOLD}STARTING${NC}\n"
 fi
+sleep 1
 
 function center_text {
   local text="$1"
@@ -71,16 +72,17 @@ IFS=' '
 five_hundred_numbers_string="\"${hundred_numbers[*]}\""
 
 declare -a five_numbers
-for i in {1..5}; do
+count=0
+while [ $count -lt 5 ]
+do
   new_number=$((RANDOM % 25 - 12))
   if [[ " ${five_numbers[@]} " =~ " ${new_number} " ]]; then
     continue
   else
     five_numbers+=($new_number)
+    count=$((count+1))
   fi
 done
-
-#optimize the code to be less cluttered, and also correct the output of false/positives valgrind would display when showing Error
 
 #--------------------------------------------------------------------------------------------------------------------------------
 description=("NO ARGUMENTS" "1 ARGUMENT ONLY" "2 ARGUMENTS SORTED" "3 ARGUMENTS SORTED" "5 ARGUMENTS SORTED" \
@@ -130,9 +132,9 @@ err_output=$(./push_swap ${five_hundred_numbers_string[@]} 2>&1 >/dev/null)
       echo -e "Unexpected output, check the output manually with arguments: ${GREY}${five_hundred_numbers_string[@]}\n"
     fi
 
+#------------------------------------------------------------------------------------------------------------------
 
 center_text "INTS AS SINGLE STRING ARGUMENT" $(tput cols)
-#------------------------------------------------------------------------------------------------------------------
 
 description=("1 ARGUMENT ONLY" "2 ARGUMENTS SORTED" "3 ARGUMENTS SORTED" "5 ARGUMENTS SORTED" \
 "INT_MIN CHECK" "INT_MAX CHECK" "HAS INVALID CHARS" "HAS DUPLICATES" "2 VALUE STACK" "3 VALUE STACK" "5 VALUE STACK")
